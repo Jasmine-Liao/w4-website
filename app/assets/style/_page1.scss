@@ -1,23 +1,49 @@
 .main-menu{
     display: flex;
+    max-width: 1320px;
+    margin: 0 auto;
     li{
-        width: 432px;
+        width: 33.33%;
         border: 1px solid #DCDCDC;
         a{
             display: block;
             color:black;
             text-decoration: none;
-            font-size: 32px;
-            line-height: 48px;
+            font-size: $fz-32;
+            line-height: $lh-48;
             text-align: center;
             font-weight: bold;
-            padding: 12px 0;
+            padding: 24px 0;
         }
         a:hover{
             border-bottom: 8px solid #AA0601;
             opacity: 1;
         }
     }
+}
+@media(max-width:992px){
+    .main-menu{
+        li{
+            a{
+                font-size: $fz-24;
+                line-height: $lh-36;
+                padding: 16px 0;
+            }
+        }
+    }
+
+}
+@media(max-width:767px){
+    .main-menu{
+        li{
+            a{
+                font-size: $fz-16;
+                line-height: $lh-24;
+                padding: 16px 0;
+            }
+        }
+    }
+
 }
 .banner ul{
     display: flex;
@@ -50,12 +76,12 @@
     padding: 80px 0;
     text-align: center;
     h2{
-        font-size: 42px;
-        line-height: 63px;
+        font-size: $fz-42;
+        line-height: $lh-63;
     }
     h3{
-        font-size: 32px;
-        line-height: 48px;
+        font-size: $fz-32;
+        line-height: $lh-48;
         margin-bottom: 32px;
     }
     ul{
@@ -65,14 +91,12 @@
         padding: 0 15px;
         li{
             margin-bottom: 80px;
-            img{
-                max-width: 306px;
-            }
+            width: 24%;
             .glass-p{
                 display: flex;
                 justify-content: space-between;
-                font-size: 24px;
-                line-height: 36px;
+                font-size: $fz-24;
+                line-height: $lh-36;
                 p{
                     color:#AA0601;
                 }
@@ -97,11 +121,24 @@
         }
     }
 }
-@media (max-width:768px){
-    .glass-info{
-        li{
-            width: 49%;
-        }
+@media (max-width:992px){
+    .glass-list{
+        ul{
+            flex-wrap: wrap;
+            li{
+                width: 49%;
+            }
+        } 
+    }
+}
+@media (max-width:767px){
+    .glass-list{
+        ul{
+            flex-wrap: wrap;
+            li{
+                width: 100%;
+            }
+        } 
     }
 }
 .page{
@@ -120,8 +157,8 @@
            a{
             color:#555555;
             text-decoration: none;
-            font-size: 18px;
-            line-height: 27px;
+            font-size: $fz-18;
+            line-height: $lh-27;
             display:block;
             padding: 12px 14px;
            }
@@ -133,9 +170,12 @@
     }
 }
 @media(max-width:767px){
-    .page li{
-        width: 50%;
+    .page{
+        width: 370px;
+        a{
+            display: block;
+            font-size: $fz-16;
+            line-height: $lh-24;
+        }
     }
-
-} 
-    
+}
