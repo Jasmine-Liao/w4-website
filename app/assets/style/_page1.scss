@@ -14,43 +14,42 @@
             text-align: center;
             font-weight: bold;
             padding: 24px 0;
-        }
-        a:hover{
-            border-bottom: 8px solid #AA0601;
-            opacity: 1;
-        }
-    }
-}
-@media(max-width:992px){
-    .main-menu{
-        li{
-            a{
+            @include pad{
                 font-size: $fz-24;
                 line-height: $lh-36;
                 padding: 16px 0;
             }
-        }
-    }
-
-}
-@media(max-width:767px){
-    .main-menu{
-        li{
-            a{
+            @include phone{
                 font-size: $fz-16;
                 line-height: $lh-24;
                 padding: 16px 0;
             }
         }
+        a::after{
+            content:" ";
+            display:block; 
+            width: 0%;
+            height: 8px;
+            background-color: #AA0601;
+        }
+        a:hover::after{
+            width: 100%;
+        }
+        a:hover{
+            opacity: 1;
+        }
     }
-
 }
+
 .banner ul{
     display: flex;
     justify-content: space-between;
+    min-height: 296px;
+    @include phone{
+        min-height: 136px;
+    }
     .banner1{
         width: 50%;
-        min-height: 296px;
         background: url(../images/product-header-sm-1.png);
         background-repeat: no-repeat;
         background-size: cover;
@@ -61,7 +60,6 @@
     }
     .banner2{
         width: 50%;
-        min-height: 296px;
         background: url(../images/product-header-sm-2.png);
         background-repeat: no-repeat;
         background-size: cover;
@@ -73,25 +71,47 @@
 }
 
 .glass-info{
-    padding: 80px 0;
+    padding-top: 80px;
     text-align: center;
+    @include phone{
+        padding-top: 40px;
+    }
     h2{
         font-size: $fz-42;
         line-height: $lh-63;
+        @include phone{
+            font-size: $fz-24;
+            line-height: $lh-36;
+        }
     }
     h3{
         font-size: $fz-32;
         line-height: $lh-48;
         margin-bottom: 32px;
+        @include phone{
+            font-size: $fz-24;
+            line-height: $lh-36;
+            margin-bottom: 24px;
+        }
     }
     ul{
         display: flex;
-        justify-content: space-between;
         flex-wrap: wrap;
-        padding: 0 15px;
+        padding-left: -12px;
+        padding-right: -12px;
         li{
-            margin-bottom: 80px;
+            padding-left: 12px;
+            padding-right: 12px;
             width: 24%;
+            margin-bottom: 80px;
+            @include pad{
+                width: 49%;
+                margin-bottom: 40px;
+            }
+            @include phone{
+                width: 100%;
+                margin-bottom: 24px;
+            }
             .glass-p{
                 display: flex;
                 justify-content: space-between;
@@ -115,45 +135,23 @@
                     height: 24px;
                     border-radius: 4px;
                     background: #B75929;
-                    
                 }
             }
         }
     }
 }
-@media (max-width:992px){
-    .glass-list{
-        ul{
-            flex-wrap: wrap;
-            li{
-                width: 49%;
-            }
-        } 
-    }
-}
-@media (max-width:767px){
-    .glass-list{
-        ul{
-            flex-wrap: wrap;
-            li{
-                width: 100%;
-            }
-        } 
-    }
-}
+
 .page{
-    width: 372px;
-    margin: 0 auto;
     margin-bottom: 80px;
+    @include phone{
+        margin-bottom: 64px;
+    }
     ul{
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         text-align: center;
-        border-top: 1px solid #555555;
-        border-left: 1px solid #555555;
-        border-bottom: 1px solid #555555;
         li{
-            border-right: 1px solid #555555;
+            border: 1px solid #555555;
            a{
             color:#555555;
             text-decoration: none;
@@ -161,21 +159,16 @@
             line-height: $lh-27;
             display:block;
             padding: 12px 14px;
+            @include phone{
+                font-size: $fz-16;
+                line-height: $lh-24;
+            }
            }
            a:hover{
             color:#fff;
             background-color: #000;
+            opacity: 1;
            }
-        }
-    }
-}
-@media(max-width:767px){
-    .page{
-        width: 370px;
-        a{
-            display: block;
-            font-size: $fz-16;
-            line-height: $lh-24;
         }
     }
 }

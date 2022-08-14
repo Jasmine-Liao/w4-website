@@ -1,20 +1,40 @@
+.p-80{
+    padding: 80px 0;
+}
+.mt-8{
+    margin-top: 8px;
+}
+.mb-16{
+    margin-bottom: 16px;
+}
 .main-banner{
     min-height: 787px;
     background-image: url(../images/home-header.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    @include phone{
+        background-image: url(../images/home-header-sm.png);
+        min-height: 396px;
+    }
     .main-banner-t{
         display: flex;
         flex-direction:column;
         align-items: flex-end;
         min-height: 787px;
         justify-content: center;
+        @include phone{
+            min-height: 396px;
+        }
     }
     h2{
         font-size: $fz-36;
         line-height: $lh-54;
         color: #650300;
+        @include phone{
+            font-size: $fz-16;
+            line-height: $lh-24;
+        }
     }
     p{
         font-size: $fz-64;
@@ -22,8 +42,13 @@
         color:#650300;
         font-weight: bold;
         margin-bottom: 4px;
+        @include phone{
+            font-size: $fz-24;
+            line-height: $lh-36;
+        }
     }
     a{
+        display: block;
         color: #fff;
         text-decoration: none;
         padding: 6px 12px;
@@ -32,49 +57,55 @@
         background: #AA0601;
     }
 }
-@media(max-width:767px){
-    .main-banner{
-        width: 100%;
-        min-height: 396px;
-        .main-banner-t{
-            min-height: 396px;
-        }
-        h2{
-            font-size: $fz-16;
-            line-height: $lh-24;
-        }
-        p{
-            font-size: $fz-24;
-            line-height: $lh-36;
-        }
-    }
-}
-.p-80{
-    padding: 80px 0;
-}
+
 .service{
     background: #FBF2F2;
     text-align: center;
+    @include pad{
+        padding-bottom: 32px;
+    }
+    @include phone{
+        padding: 40px 0;
+    }
     h3{
         font-size: $fz-48;
         line-height: $lh-72;
         color:#650300;
         font-weight: bold;
         margin-bottom: 24px;
+        @include phone{
+            font-size: $fz-24;
+            line-height: $lh-36;
+        }
     }
     ul{
         display: flex;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        @include pad{
+            padding-left: -12px;
+            padding-right: -12px;
+        }
         li{
-            width: 24%;
+            width: 25%;
+            padding-left: 12px;
+            padding-right: 12px;
+            @include pad{
+                width: 50%;
+                margin-bottom: 48px;
+            }
+            @include phone{
+                width: 100%;
+                margin-bottom: 24px;
+            }
             img{
                 width: 100px;
                 height: 100px;
+                margin-bottom: 16px;
             }
             h4{
                 font-size: $fz-24;
-                color:#650300;
                 line-height: $lh-36;
+                color:#650300;
                 font-weight: bold;
                 margin-bottom: 8px;
             }
@@ -84,55 +115,52 @@
             }
         }
     }
-}
-
-@media(max-width:992px){
-    .service{
-        ul{
-            flex-wrap: wrap;
-            li{
-                width: 49%;
-                margin-bottom: 48px;
-            }
+    ul :last-child{
+        @include phone{
+            margin-bottom: 0px;
         }
     }
 }
 
-@media(max-width:767px){
-    .service{
-        padding: 40px 0;
-        h3{
-            font-size: $fz-24;
-            line-height: $lh-36;
-        }
-        ul{
-            flex-wrap: wrap;
-            li{
-                width: 100%;
-                margin-bottom: 24px;
-                margin: 0 auto;
-            }
-        }
-    }
-}
 .glass-classic{
     text-align: center;
+    @include phone{
+        padding: 40px 0;
+    }
     h3{
         font-size: $fz-48;
         line-height: $lh-72;
         color:#650300;
         font-weight: bold;
-        margin-bottom: 24px;
+        margin-bottom: 48px;
+        @include phone{
+            font-size: $fz-24;
+            line-height: $lh-36;
+            margin-bottom: 24px;
+        }
     }
     ul{
         display: flex;
-        justify-content: space-between;
+        @include pad{
+            flex-wrap: wrap;
+        }
         li{
-            width: 33.33%;
+            margin-right: 24px;
+            @include pad{
+                width: 100%;
+                margin-bottom: 24px;
+                margin-right: 0;
+            }
             img{
                 margin-bottom: 8px;
+                @include pad{
+                    max-width: 336px;
+                }
+                @include phone{
+                    max-width: 348px;
+                }
             }
-            p{
+            h4{
                 font-size: $fz-48;
                 line-height: $lh-72;
                 color:#AA0601;
@@ -141,34 +169,14 @@
             }
         }
     }
-}
-@media(max-width:992px){
-    .glass-classic{
-        ul{
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            li{
-                width: 100%;
-                margin-bottom: 24px;
-            }
-            img{
-                width: 336px;
-                height: 336px;
-                margin-bottom: 8px;
-            }
+    ul :last-child{
+        margin-right: 0;
+        @include pad{
+            margin-bottom: 0;
         }
     }
 }
-@media(max-width:767px) {
-    .glass-classic{
-        padding: 40px 0;
-        h3{
-            font-size: $fz-24;
-            line-height: $lh-36;
-        }
-    } 
-}
+
 .glass-design{
     text-align: center;
     min-height: 608px;
@@ -176,136 +184,97 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    @include pad{
+        padding: 80px 36px 56px;
+        min-height: 960px;
+        background-image: url(../images/index-bg-sm.png);
+    }
+    @include phone{
+        padding: 40px 0;
+        min-height: 820px;
+        background-image: url(../images/index-bg-md.png);
+    }
     h3{
         font-size: $fz-48;
         line-height: $lh-72;
         color: #fff;
         font-weight: bold;
-        margin-bottom: 24px;
-    }
-    ul{
-        display: flex;
-        justify-content: space-between;
-    }
-    li{
-        width: 50%;
-    }
-    p{
-        font-size: $fz-48;
-        line-height: $lh-72;
-        color:#AA0601;
-        font-weight: bold;
-        padding: 8px 0;
-        background: #fff;
-        font-style: italic;
-    }
-}
-@media(max-width:992px){
-    .glass-design{
-        padding: 80px 36px;
-        min-height: 960px;
-        background-image: url(../images/index-bg-sm.png);
-        ul{
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        li{
-            width: 100%;
-            margin-bottom: 24px;
-        }
-    }
-}
-@media(max-width:767px){
-    .glass-design{
-        padding: 40px 14px;
-        min-height: 820px;
-        background-image: url(../images/index-bg-md.png);
-        h3{
+        margin-bottom: 48px;
+        @include phone{
             font-size: $fz-24;
             line-height: $lh-36;
-        }
-        ul{
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        li{
-            width: 100%;
             margin-bottom: 24px;
         }
     }
-}
-.customer{
-    h3{
-        font-size: $fz-48;
-        line-height: $lh-72;
-        color:#650300;
-        font-weight: bold;
-        margin-bottom: 24px;
-        text-align: center;
-    }
-    &-list{
-        display: flex;
-        justify-content: space-between;
-        .customer-info{
-            border: 1px solid #00000029;
-            box-shadow: 0px 2px 6px #00000029;
-            border-radius: 4px;
-            width: 24%;
-        }
-    }
-}
-.comment{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 16px;
     ul{
-        margin-bottom: 72px;
-        li{
-            line-height: $lh-24;
-        }  
-    }
-    &:first-child{
-        margin-bottom: 8px;
-    }
-    p{
-        color:#707070;
-    };
-}
-@media(max-width:992px){
-    .customer{
-        &-list{
+        display: flex;
+        @include pad{
             flex-wrap: wrap;
-            .customer-info{
-                width: 49%;
+        }
+        li{
+            width: 50%;
+            @include pad{
+                width: 100%;
+                margin-bottom: 24px;
+            }
+            @include phone{
+                width: 100%;
                 margin-bottom: 24px;
             }
         }
-    }
-}
-@media(max-width:767px){
-    .customer{
-        padding: 40px 14px;
-        h3{
-            font-size: $fz-24;
-            line-height: $lh-36;
-        }
-        &-list{
-            flex-wrap: wrap;
-            .customer-info{
-                width: 100%;
-                margin-bottom: 16px;
+        .design1{
+            min-height: 240px;
+            background: url(../images/home-section4-1.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            text-indent: 101%;
+            overflow: hidden;
+            white-space: nowrap;
+            @include phone{
+                background: url(../images/home-section4-1-sm.png);
+                background-size: contain;
+                background-repeat: no-repeat;  
             }
         }
+        .design2{
+            min-height: 240px;
+            background: url(../images/home-section4-2.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            text-indent: 101%;
+            overflow: hidden;
+            white-space: nowrap;
+            @include phone{
+                background: url(../images/home-section4-2-sm.png);
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
+        h4{
+            font-size: $fz-48;
+            line-height: $lh-72;
+            color:#AA0601;
+            font-weight: bold;
+            padding: 8px 0;
+            background: #fff;
+            font-style: italic;
+        }
+    }
+    ul :last-child{
+        @include pad{
+            margin-bottom: 0;
+        }
     }
 }
-.contact-us{
-    background-color: #FBF2F2;
-    .container{
-        width: 636px;
-        margin: 0 auto;
+
+.customer{
+    @include pad{
+        padding-bottom: 56px;
+    }
+    @include phone{
+        padding: 40px 12px;
     }
     h3{
         font-size: $fz-48;
@@ -314,6 +283,88 @@
         font-weight: bold;
         margin-bottom: 48px;
         text-align: center;
+        @include phone{
+            font-size: $fz-24;
+            line-height: $lh-36;
+            margin-bottom: 24px;
+        }
+    }
+    &-list{
+        display: flex;
+        @include pad{
+            flex-wrap: wrap;
+        }
+        .customer-info{
+            border: 1px solid #00000029;
+            box-shadow: 0px 2px 6px #00000029;
+            border-radius: 4px;
+            margin-right: 24px;
+            @include pad{
+                width: 48%;
+                margin-bottom: 24px;
+            }
+            @include phone{
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 16px;
+            }
+        }
+    }
+    &-list :last-child{
+        margin-right: 0;
+        @include phone{
+            margin-bottom: 0;
+        }
+    }
+    &-list :nth-child(2n){
+        @include pad{
+            margin-right: 0;
+        }
+    }
+}
+.comment{
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    .comment-detail{
+        margin-bottom: 64px;
+        p{
+            line-height: $lh-24;
+            color:#000;
+            margin-bottom: 8px;
+        }  
+    }
+    p{
+        color:#707070;
+    }
+}
+
+.contact-us{
+    background-color: #FBF2F2;
+    @include phone{
+        padding: 40px 0;
+    }
+    .container{
+        max-width: 636px;
+        @include pad{
+            max-width: 576px
+        }
+        @include phone{
+            max-width: 348px;
+        }
+    }
+    h3{
+        font-size: $fz-48;
+        line-height: $lh-72;
+        color:#650300;
+        font-weight: bold;
+        margin-bottom: 48px;
+        text-align: center;
+        @include phone{
+            font-size: $fz-24;
+            line-height: $lh-36;
+            margin-bottom: 24px;
+        }
     }
     p{
         font-size: $fz-20;
@@ -321,33 +372,11 @@
         margin-bottom: 24px;
     }
 }
-@media(max-width:992px){
-    .contact-us{
-        .container{
-            max-width: 576px;
-        }
-    }
-}
-@media(max-width:767px){
-    .contact-us{
-        padding: 40px 0;
-        h3{
-            font-size: $fz-24;
-            line-height: $lh-36;
-        }
-        .container{
-            max-width: 348px;
-        }
-    }
-}
-.mt-8{
-    margin-top: 8px;
-}
-.mb-16{
-    margin-bottom: 16px;
-}
+
 .input{
     width: 100%;
+    font-size: $fz-16;
+    line-height: $lh-24;
     padding: 6px 12px;
     background-color: #FBF2F2;
     border: 1px solid #000;
@@ -358,8 +387,7 @@
 .btn{
     display: block;
     margin: 0 auto;
-    width: 416px;
-    padding: 16px 0;
+    padding: 16px 176px;
     color:#fff;
     background-color:#AA0601;
     border: 1px solid #AA0601;
@@ -367,12 +395,14 @@
     font-weight: bold;
     font-size: $fz-16;
     line-height: $lh-24;
-}
-@media(max-width:767px){
-    .btn{
+    @include pad{
+        padding: 16px 136px;
+    }
+    @include phone{
         max-width: 310px;
     }
 }
+
 .btn:hover{
     background-color:#650300;
     border: 1px solid #650300;
