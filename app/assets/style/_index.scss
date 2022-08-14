@@ -233,8 +233,7 @@
             white-space: nowrap;
             @include phone{
                 background: url(../images/home-section4-1-sm.png);
-                background-size: contain;
-                background-repeat: no-repeat;  
+                background-position: center;
             }
         }
         .design2{
@@ -248,8 +247,7 @@
             white-space: nowrap;
             @include phone{
                 background: url(../images/home-section4-2-sm.png);
-                background-size: contain;
-                background-repeat: no-repeat;
+                background-position: center;
             }
         }
         h4{
@@ -399,7 +397,7 @@
         padding: 16px 136px;
     }
     @include phone{
-        max-width: 310px;
+        padding: 16px 116px;
     }
 }
 
