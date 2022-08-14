@@ -504,8 +504,7 @@ a:hover {
       @media (max-width: 767px) {
         .glass-design ul .design1 {
           background: url(../images/home-section4-1-sm.png);
-          background-size: contain;
-          background-repeat: no-repeat; } }
+          background-position: center; } }
     .glass-design ul .design2 {
       min-height: 240px;
       background: url(../images/home-section4-2.png);
@@ -518,8 +517,7 @@ a:hover {
       @media (max-width: 767px) {
         .glass-design ul .design2 {
           background: url(../images/home-section4-2-sm.png);
-          background-size: contain;
-          background-repeat: no-repeat; } }
+          background-position: center; } }
     .glass-design ul h4 {
       font-size: 48px;
       line-height: 72px;
@@ -662,7 +660,7 @@ a:hover {
       padding: 16px 136px; } }
   @media (max-width: 767px) {
     .btn {
-      max-width: 310px; } }
+      padding: 16px 116px; } }
 
 .btn:hover {
   background-color: #650300;
